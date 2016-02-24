@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+    <title>Server testing</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    
+<script src="js/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+
+
+    
+</head>
+    <body>
+        <div class="container" ng-controller="AppCtrl">
+    <h1>Contact List Application</h1>
+    <div class= "container">
+        <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" ng-model="contact.name"></td>
+                <td><input class="form-control" ng-model="contact.email"></td>
+                <td><input class="form-control" ng-model="contact.phone"></td>
+                <td><button class="btn btn-primary" ng-click = "addContact()" ng-show ="addContactEnable">Add Contact</button></td>
+                <td><button class="btn btn-info" ng-click = "update(contact._id)" ng-show = "updateContactEnable">Update</button>
+            </tr>
+            
+            <tr ng-repeat = "contact in contactList">
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phone }}</td>
+                <td><button class = "btn btn-danger" ng-click = "remove(contact._id)">Remove</button></td>
+                <td><button class = "btn btn-warning" ng-click = "edit(contact._id)">Edit</button></td>
+                
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+    </body>
+</html>
